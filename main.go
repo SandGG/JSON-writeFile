@@ -30,7 +30,7 @@ func createFile() {
 }
 
 func writeFile() {
-	var file, err = os.OpenFile("./files/person.json", 2, 644)
+	var file, err = os.OpenFile("./files/person.json", os.O_WRONLY, 0644)
 	defer file.Close() //Close file after write
 	if err != nil {
 		log.Fatal(err)
@@ -64,7 +64,7 @@ func writeFile() {
 }
 
 func readFile() {
-	var file, err = os.OpenFile("./files/person.json", 2, 644)
+	var file, err = os.OpenFile("./files/person.json", os.O_RDONLY, 0644)
 	defer file.Close() //Close file after read
 	if err != nil {
 		log.Fatal(err)
